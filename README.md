@@ -10,7 +10,7 @@
 
 ___
 ## 演示视频
-[人工桌面提取/还没做完](https://space.bilibili.com/45409103/dynamic)
+[人工桌面提取](https://www.bilibili.com/video/BV1nN411e75A/)
 
 ## 环境要求  
 已包含编译文件exe运行即可  
