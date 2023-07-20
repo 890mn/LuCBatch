@@ -1,19 +1,46 @@
-# LuCBatch
-nova desktop batch extract with c++
+# 人工桌面提取助手 LuCBatch  
 
+使用人工桌面 `NovaDesktop` 时可以打开 `Batch_Main.exe` 进行快速提取  
+> The .exe(Windows) File compiled with C++ which can do Batch operation  
+> of extract NovaDesktop's dynamic wallpaper and static wallpaper.
+#### 壁纸版权所有Copyright：米哈游miHoYo  
+#### Author: 890mn/Link_Joestar
+#### Version: 1.0 
+#### Date: 2023/07/20
 
-我需要使用C++语言编写一段代码，语言规范支持最高C++20，应用场景为Windows系统，无需多平台兼容，要求如下：  
-1 这一程序的目的是对特定文件进行“提取”并合理存放，提取的规则如下：  
-	a 如果文件前四个字节十六进制值为“0x89, 0x50, 0x4E, 0x47”且该文件后缀是“ndf”时，将文件后缀改为png并根据文件进入先后顺序更改新文件命名如“1_novaPic.png”,文件统一存放于同目录下output_png文件夹  
- 	b 如果文件前八个字节十六进制值为“0x00, 0x00, 0x00, 0x00, 0x00, 0x18, 0x66, 0x74”或“0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x66, 0x74”且该文件后缀是“ndf”时，  
-      将除前两个字节以外的内容写入新文件，文件后缀改为mp4并根据文件进入先后顺序更改，新文件命名如“1_novaMov.mp4”,文件统一存放于同目录下output_mp4文件夹  
-  	c 文件大小如果小于600kb就不处理  
-2 程序框架如下：  
-	a 先询问是否知道人工桌面的存放盘符，提示不输入对应盘符会查找很久，如果提供盘符则进入对应盘查找文件夹“N0vaDesktop”并进入“N0vaDesktopCache\game”文件夹中，  
-      如未提供则在所有存在内容的盘符中搜索并进行相同操作  
- 	b 提示可以开始下载  
-  	c 当文件夹下出现新文件就开始提取，处理文件时输出提示，内容合适即可  
-   	d c阶段没有终止条件，用户停止直接结束运行exe文件所以无所谓  
-3 程序需要有一定输出内容提醒当前阶段，所有输出内容用英语编写  
-  
-C:/Program Files/N0vaDesktop  
+___
+
+## 环境要求  
+已包含编译文件exe运行即可  
+如有编译需求，__C++17__ 及以上  
+
+## 编译
+```
+> g++ -o Batch_Main Batch_Main.cpp
+```
+
+## 运行
+```
+> ./Batch_Main
+```
+
+## 提取助手用法
+```
+> Do you know the drive letter for the N0vaDesktop folder? (Enter the drive letter or leave empty):
+```
+输入人工桌面所在盘符，也可以选择不输入直接查找   
+> C盘默认扫描位置C:/Program Files/N0vaDesktop 其余位置不予搜索
+
+   
+```
+> Do you want to start downloading files? (y/n):
+```
+输入Y/y进入提取模式  
+
+```
+> Current Random Seed: 26608
+> The Programme is running with dynamic screen-refresh.
+> You can leave whenever just by you choose [ctrl-c] or [quit by your like]
+```
+提示出现后保持程序运行然后随便下载吧  
+程序退出条件是Ctrl-C组合键或怎么样都行  
