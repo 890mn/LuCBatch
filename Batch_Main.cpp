@@ -151,7 +151,15 @@ void extractFiles(const std::wstring& rootPath) {
                 fs::copy_file(entry.path(), outputPath, fs::copy_options::overwrite_existing);
                 std::wcout << L"Extracted PNG: " << entry.path() << L" -> " << outputPath << std::endl;
             }
-        } else if ((headerBytes[0] == 0x00 && headerBytes[1] == 0x00 && headerBytes[2] == 0x00 && headerBytes[3] == 0x00 &&
+        } else if(headerBytes[0] == 0xFF && headerBytes[1] == 0xD8 && headerBytes[2] == 0xFF && (headerBytes[3] == 0xE0 || headerBytes[3] == 0xE1)){
+            if (entry.path().extension() == L".ndf") {
+                // Rename and move to output_png_folder
+                fs::path outputPath = fs::path(output_png_folder) / (seed + L"_" + std::to_wstring(++pngCount) + L"_novaPic.png");
+                fs::copy_file(entry.path(), outputPath, fs::copy_options::overwrite_existing);
+                std::wcout << L"Extracted PNG: " << entry.path() << L" -> " << outputPath << std::endl;
+            }
+        } 
+        else if ((headerBytes[0] == 0x00 && headerBytes[1] == 0x00 && headerBytes[2] == 0x00 && headerBytes[3] == 0x00 &&
                     (headerBytes[5] == 0x18 || headerBytes[5] == 0x20) &&
                     headerBytes[4] == 0x00 && headerBytes[6] == 0x66 && headerBytes[7] == 0x74)) {
             if (entry.path().extension() == L".ndf") {
@@ -218,7 +226,15 @@ void extractNewFiles(const std::wstring& rootPath, std::unordered_map<std::wstri
                         fs::copy_file(entry.path(), outputPath, fs::copy_options::overwrite_existing);
                         std::wcout << L"Extracted PNG: " << entry.path() << L" -> " << outputPath << std::endl;
                     }
-                } else if ((headerBytes[0] == 0x00 && headerBytes[1] == 0x00 && headerBytes[2] == 0x00 && headerBytes[3] == 0x00 &&
+                } else if(headerBytes[0] == 0xFF && headerBytes[1] == 0xD8 && headerBytes[2] == 0xFF && (headerBytes[3] == 0xE0 || headerBytes[3] == 0xE1)){
+                    if (entry.path().extension() == L".ndf") {
+                        // Rename and move to output_png_folder
+                        fs::path outputPath = fs::path(output_png_folder) / (seed + L"_" + std::to_wstring(++pngCount) + L"_novaPic.png");
+                        fs::copy_file(entry.path(), outputPath, fs::copy_options::overwrite_existing);
+                        std::wcout << L"Extracted PNG: " << entry.path() << L" -> " << outputPath << std::endl;
+                    }
+                }
+                else if ((headerBytes[0] == 0x00 && headerBytes[1] == 0x00 && headerBytes[2] == 0x00 && headerBytes[3] == 0x00 &&
                             (headerBytes[5] == 0x18 || headerBytes[5] == 0x20) &&
                             headerBytes[4] == 0x00 && headerBytes[6] == 0x66 && headerBytes[7] == 0x74)) {
                     // ... (extract MP4 file code)
