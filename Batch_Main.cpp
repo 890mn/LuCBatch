@@ -160,7 +160,7 @@ void extractFiles(const std::wstring& rootPath) {
             }
         } 
         else if ((headerBytes[0] == 0x00 && headerBytes[1] == 0x00 && headerBytes[2] == 0x00 && headerBytes[3] == 0x00 &&
-                    (headerBytes[5] == 0x18 || headerBytes[5] == 0x20) &&
+                    (headerBytes[5] == 0x18 || headerBytes[5] == 0x20 || headerBytes[5] == 0x2C) &&
                     headerBytes[4] == 0x00 && headerBytes[6] == 0x66 && headerBytes[7] == 0x74)) {
             if (entry.path().extension() == L".ndf") {
                 // Rename and move to output_mp4_folder
@@ -235,7 +235,7 @@ void extractNewFiles(const std::wstring& rootPath, std::unordered_map<std::wstri
                     }
                 }
                 else if ((headerBytes[0] == 0x00 && headerBytes[1] == 0x00 && headerBytes[2] == 0x00 && headerBytes[3] == 0x00 &&
-                            (headerBytes[5] == 0x18 || headerBytes[5] == 0x20) &&
+                            (headerBytes[5] == 0x18 || headerBytes[5] == 0x20 || headerBytes[5] == 0x2C) &&
                             headerBytes[4] == 0x00 && headerBytes[6] == 0x66 && headerBytes[7] == 0x74)) {
                     // ... (extract MP4 file code)
                     flag = 1;
