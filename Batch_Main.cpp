@@ -151,7 +151,7 @@ void extractFiles(const std::wstring& rootPath) {
                 fs::copy_file(entry.path(), outputPath, fs::copy_options::overwrite_existing);
                 std::wcout << L"Extracted PNG: " << entry.path() << L" -> " << outputPath << std::endl;
             }
-        } else if(headerBytes[0] == 0xFF && headerBytes[1] == 0xD8 && headerBytes[2] == 0xFF && (headerBytes[3] == 0xE0 || headerBytes[3] == 0xE1)){
+        } else if(headerBytes[0] == 0xFF && headerBytes[1] == 0xD8 && headerBytes[2] == 0xFF && (headerBytes[3] == 0xE0 || headerBytes[3] == 0xE1 || headerBytes[3] == 0xDB)){
             if (entry.path().extension() == L".ndf") {
                 // Rename and move to output_png_folder
                 fs::path outputPath = fs::path(output_png_folder) / (seed + L"_" + std::to_wstring(++pngCount) + L"_novaPic.png");
@@ -226,7 +226,7 @@ void extractNewFiles(const std::wstring& rootPath, std::unordered_map<std::wstri
                         fs::copy_file(entry.path(), outputPath, fs::copy_options::overwrite_existing);
                         std::wcout << L"Extracted PNG: " << entry.path() << L" -> " << outputPath << std::endl;
                     }
-                } else if(headerBytes[0] == 0xFF && headerBytes[1] == 0xD8 && headerBytes[2] == 0xFF && (headerBytes[3] == 0xE0 || headerBytes[3] == 0xE1)){
+                } else if(headerBytes[0] == 0xFF && headerBytes[1] == 0xD8 && headerBytes[2] == 0xFF && (headerBytes[3] == 0xE0 || headerBytes[3] == 0xE1 || headerBytes[3] == 0xDB)){
                     if (entry.path().extension() == L".ndf") {
                         // Rename and move to output_png_folder
                         fs::path outputPath = fs::path(output_png_folder) / (seed + L"_" + std::to_wstring(++pngCount) + L"_novaPic.png");
