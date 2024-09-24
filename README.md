@@ -3,14 +3,19 @@
 使用人工桌面 `NovaDesktop` 时可以打开 `Batch_Main.exe` 进行快速提取  
 > The .exe(Windows) File compiled with C++ which can do Batch operation  
 > of extract NovaDesktop's dynamic wallpaper and static wallpaper.
-#### 壁纸版权所有Copyright：米哈游miHoYo  
-#### Author: 890mn/Link_Joestar
-#### Version: 1.0 
-#### Date: 2023/07/20
+
+壁纸版权所有Copyright：米哈游miHoYo  
+
+Author: Hinar
+
+Version: 1.1
+
+Date: 2024/09/24
 
 ___
 ## 演示视频
-[人工桌面提取](https://www.bilibili.com/video/BV1nN411e75A/)
+[提取说明](https://www.bilibili.com/video/BV1nN411e75A/)
+ | [提取演示](https://www.bilibili.com/video/BV1CntaeoE93/)
 
 ## 环境要求  
 已包含编译文件exe运行即可  
@@ -30,9 +35,10 @@ ___
 ```
 > Do you know the drive letter for the N0vaDesktop folder? (Enter the drive letter or leave empty):
 ```
-输入人工桌面所在盘符，也可以选择不输入直接查找   
+输入人工桌面所在盘符，也可以选择不输入直接查找（运行必需以管理员权限打开，不然会闪退）   
 > C盘默认扫描位置C:/Program Files/N0vaDesktop 其余位置不予搜索
 
+同时这一步也可以使用‘test.exe’直接输入人工桌面地址[如：../N0vaDesktopCache/Game]用来代替机器检索
    
 ```
 > Do you want to start downloading files? (y/n):
