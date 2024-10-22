@@ -16,7 +16,7 @@ ___
 ## 演示视频
 [提取说明](https://www.bilibili.com/video/BV1nN411e75A/)
  | [(CMD) 提取演示](https://www.bilibili.com/video/BV1CntaeoE93/)
-  | [(QT) 提取演示](https://www.bilibili.com/video/BV1CntaeoE93/)
+  | [(QT) 提取演示](https://www.bilibili.com/video/BV1LYy5YXEYk/)
 
 ## 使用说明
 
